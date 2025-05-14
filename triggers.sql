@@ -1,7 +1,7 @@
 DELIMITER $$
 
---1.-Conflicto de horarios: Impedir que se asigne una partida a un jugador o al personal 
---si ya tienen otra partida programada para la misma fecha y hora.
+-- 1.-Conflicto de horarios: Impedir que se asigne una partida a un jugador o al personal 
+-- si ya tienen otra partida programada para la misma fecha y hora.
 CREATE TRIGGER conflicto_horario_supervisor_insert
 BEFORE INSERT ON Partida
 FOR EACH ROW
@@ -59,7 +59,7 @@ END$$
 
 
 -- 3.-Bonus track: Impedir que se asigne una partida con un juego y unas expansiones si todas las copias
---de estos están ya asignados a partidas para la misma fecha y hora.
+-- de estos están ya asignados a partidas para la misma fecha y hora.
 
 CREATE TRIGGER disponibilidad_juego_y_expansiones
 BEFORE INSERT ON Partida
