@@ -58,7 +58,7 @@ BEGIN
 END$$
 
 
---3.-Bonus track: Impedir que se asigne una partida con un juego y unas expansiones si todas las copias
+-- 3.-Bonus track: Impedir que se asigne una partida con un juego y unas expansiones si todas las copias
 --de estos están ya asignados a partidas para la misma fecha y hora.
 
 CREATE TRIGGER disponibilidad_juego_y_expansiones
@@ -130,9 +130,7 @@ BEGIN
 
     IF copias_disponibles <= 0 THEN
         SIGNAL SQLSTATE '45000' 
-        SET MESSAGE_TEXT = CONCAT('Error: Todas las copias de la expansión ', 
-                                NEW.Nombre_expansion, 
-                                ' están ocupadas para esa fecha y hora');
+        SET MESSAGE_TEXT = 'Error: Todas las copias de la expansión están ocupadas para esa fecha y hora';
     END IF;
 
     IF EXISTS (
@@ -146,9 +144,7 @@ BEGIN
         AND Utiliza.ID_partida != NEW.ID_partida
     ) THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = CONCAT('Error: La copia de la expansión ', 
-                                NEW.Nombre_expansion, 
-                                ' ya está asignada para esa fecha y hora');
+        SET MESSAGE_TEXT = 'Error: La copia de la expansión ya está asignada para esa fecha y hora';
     END IF;
 END$$
 
