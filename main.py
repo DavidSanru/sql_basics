@@ -85,7 +85,7 @@ def create_user():
         mydb.commit()
         print(f'Usuario {username} creado exitosamente.')
     except mysql.connector.Error as err:
-        if err.errno == 1062:  # Duplicate entry
+        if err.errno == 1062:
             print('Error: El nombre de usuario ya existe.')
         else:
             print(f'Error al crear usuario: {err}')
