@@ -16,7 +16,7 @@ INSERT INTO Partida VALUES (6262627, 'Jugador_test34', '15:00:00', '2025-05-10',
 
 -- 2. conflicto_horario_jugador_insert
 -- Este trigger debe evitar que un jugador participe en dos partidas a la misma hora
-INSERT INTO Persona (Nombre_persona) VALUES ('Carlos'),('Ana'), ('María'),('Luis');
+INSERT INTO Persona (Nombre_persona) VALUES ('Carlos'),('Ana'),('Luis');
 INSERT INTO Partida (ID_partida, Resultado, Hora, Fecha, Nombre_juego, ID_copia_juego, Supervisor)
 VALUES 
 (50001, 'Luis', '14:44', '2025-05-07', 'Scythe', 10, 'Carlos'),
@@ -34,8 +34,8 @@ DELETE FROM Juego_Mesa WHERE Nombre_juego = 'Catan';
 
 -- 4. disponibilidad_juego_y_expansiones
 -- Este trigger debe evitar que se use una copia de juego en dos partidas simultáneas
-INSERT INTO Partida VALUES (06262641, 'Ana', '15:00:00', '2025-06-10', 'Catan', 1, 'María');
-INSERT INTO Partida VALUES (06262640, 'Carlos', '15:00:00', '2025-06-10', 'Catan', 1, 'Luis');
+INSERT INTO Partida VALUES (6262641, 'Ana', '15:00:00', '2025-06-10', 'Catan', 1, 'María');
+INSERT INTO Partida VALUES (6262640, 'Carlos', '15:00:00', '2025-06-10', 'Catan', 1, 'Luis');
 
 
 -- 5. disponibilidad_expansiones_insert
